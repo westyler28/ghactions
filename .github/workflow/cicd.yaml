@@ -1,0 +1,13 @@
+name: github actions tutorial 
+run-name: ${{github.actor}} is running ${{github.workflow}} for ${{github.repository}}
+on: [push]
+jobs: 
+check-bats-version:
+  runs-on: ubuntu-latest
+  steps:
+    -uses: actions/checkout@v4 #CHECK OUT REPO
+    _uses: actions/setup-node@v3 #will setup node
+    with:
+      node-version: '14'
+    -run: npm install -g bats # -g is for global
+    -run: bats --version # bash assertion testing system
